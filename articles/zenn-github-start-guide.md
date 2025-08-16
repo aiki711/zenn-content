@@ -2,8 +2,8 @@
 title: "Zennではじめる技術ブログ：GitHub連携と初期リポジトリ構成，最初のmd雛形"
 emoji: "💬"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [Zenn, GitHub]
-published: false
+topics: ["zenn", "github"]
+published: true
 ---
 
 
@@ -164,7 +164,49 @@ published: true     # 下書きは false
 > Front Matter の各キー（`title/emoji/type/topics/published`）は Zenn 公式が定義する基本セット。**type** は `tech`（技術）/`idea`（アイデア）の2択です。([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
 
 
-## 8. うまくいかない時のチェックリスト
+## 8. 下書きから投稿，記事の修正
+
+基本の流れは (1) 状態確認 → (2) 追加（ステージ）→ (3) コミット → (4) プッシュ です。
+
+コマンドでやる場合（PowerShell/ターミナル）
+0. いまどこが変わってるか確認
+```bash
+git status
+```
+
+1. 変更をステージ（全部なら .、一部ならファイル名）
+```bash
+git add .
+# 例: git add articles/zenn-github-start-guide.md
+```
+
+2. スナップショットとして保存（メッセージ必須）
+```bash
+git commit -m "docs: 初回記事を追加"
+```
+
+3. GitHubへ送る（初回は -u で追跡設定）
+```bash
+git push -u origin main
+# 2回目以降は: git push
+```
+
+初回で名前/メール未設定なら
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+```bash
+#よく使う確認コマンド
+git log --oneline -n 5   # 直近のコミット履歴
+git status               # 変更/ステージ状況
+
+#うっかり対処
+git restore --staged <file>      # ステージから外す
+git commit --amend               # 直前のコミットメッセージを修正
+```
+
+## 9. うまくいかない時のチェックリスト
 
 - `npm i -D zenn-cli` を実行しているか（`npx zenn init` が見つからない場合）([Zenn](https://zenn.dev/zenn/articles/install-zenn-cli?utm_source=chatgpt.com "Zenn CLIをインストールする"))
     
@@ -174,7 +216,7 @@ published: true     # 下書きは false
     
 
 
-## 9. 次の一手（おすすめ）
+## 10. 次の一手（おすすめ）
 
 - `images/` を作って画像もGitで管理
     
