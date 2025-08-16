@@ -9,17 +9,17 @@ published: true
 
 ## TL;DR
 
-- **Zenn × GitHub 連携**でローカル執筆→Pushだけで公開できます。([Zenn](https://zenn.dev/zenn/articles/connect-to-github?utm_source=chatgpt.com "アカウントにGitHubリポジトリを連携してZennのコンテンツを ..."))
+- **Zenn × GitHub 連携**でローカル執筆→Pushだけで公開できる．([Zenn](https://zenn.dev/zenn/articles/connect-to-github?utm_source=chatgpt.com "アカウントにGitHubリポジトリを連携してZennのコンテンツを ..."))
     
-- **zenn-cli** を入れて `zenn init` → `zenn new:article` → `zenn preview` の流れで執筆。([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
+- **zenn-cli** を入れて `zenn init` → `zenn new:article` → `zenn preview` の流れで執筆．([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
     
-- 記事の **Front Matter**（title/emoji/type/topics/published）をテンプレで固定化。([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
+- 記事の **Front Matter**（title/emoji/type/topics/published）をテンプレで固定化．([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
     
 
 
 ## 1. なぜ Zenn + GitHub？
 
-- Webエディタもあるけれど、**GitHub連携**すると普段のエディタで書いてPushするだけで公開でき、履歴も残ります。([Zenn](https://zenn.dev/zenn/articles/connect-to-github?utm_source=chatgpt.com "アカウントにGitHubリポジトリを連携してZennのコンテンツを ..."))
+- Webエディタもあるけれど，**GitHub連携**すると普段のエディタで書いてPushするだけで公開でき，履歴も残るから．([Zenn](https://zenn.dev/zenn/articles/connect-to-github?utm_source=chatgpt.com "アカウントにGitHubリポジトリを連携してZennのコンテンツを ..."))
     
 
 
@@ -27,8 +27,8 @@ published: true
 
 - Node.js / npm を用意　←([Node.js](https://nodejs.org/ja/download))
     1. **Node.js LTS（推奨版）** をインストール  
-    Windows向けの **.msi 64-bit** を実行 → 既定のまま進めれば OK（npm も同時に入ります）。
-    2. **ターミナルを開き直す**（PowerShell/コマンドプロンプト/VSCodeのターミナルを完全に閉じて再起動）。
+    Windows向けの **.msi 64-bit** を実行 → 既定のまま進めれば OK（npm も同時に入る）．
+    2. **ターミナルを開き直す**（PowerShell/コマンドプロンプト/VSCodeのターミナルを完全に閉じて再起動）．
     3. **動作確認**
         ```
         node -v npm -v
@@ -45,8 +45,8 @@ published: true
 3. リモート登録 → 初回Push
    HTTPSでつなぐ（一般的）
    `git branch -M main git remote add origin https://github.com/<USER>/<REPO>.git git push -u origin main`
-   - 2021/08/13以降、**パスワードは使えません**。プロンプトの“Password”には **Personal Access Token (PAT)** を入力します（作成は Settings → Developer settings → _Personal access tokens_）。[Stack Overflow](https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed?utm_source=chatgpt.com)[GitHub Docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?utm_source=chatgpt.com) 
-   -  以降は `git push` だけでOK。資格情報はWindowsの**Credential Manager**に保存されます。入れ替えたい時はそこでトークンを更新。[Super User](https://superuser.com/questions/1309196/how-to-update-authentication-token-for-a-git-remote?utm_source=chatgpt.com)
+   - 2021/08/13以降，**パスワードは使えません**．プロンプトの“Password”には **Personal Access Token (PAT)** を入力します（作成は Settings → Developer settings → _Personal access tokens_）．[Stack Overflow](https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed?utm_source=chatgpt.com)[GitHub Docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?utm_source=chatgpt.com) 
+   -  以降は `git push` だけでOK．資格情報はWindowsの**Credential Manager**に保存されます．入れ替えたい時はそこでトークンを更新．[Super User](https://superuser.com/questions/1309196/how-to-update-authentication-token-for-a-git-remote?utm_source=chatgpt.com)
     
 
 
@@ -69,9 +69,9 @@ npx zenn init
 npx zenn preview
 ```
 
-- `zenn init` で **articles/** と **books/** が生成され、以後 CLI で記事を作れます。([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
+- `zenn init` で **articles/** と **books/** が生成され，以後 CLI で記事を作れる．([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
     
-- `npx zenn init` が見つからない場合は **先に zenn-cli のインストール**が必要です。([Zenn](https://zenn.dev/zenn/articles/install-zenn-cli?utm_source=chatgpt.com "Zenn CLIをインストールする"))
+- `npx zenn init` が見つからない場合は **先に zenn-cli のインストール**が必要．([Zenn](https://zenn.dev/zenn/articles/install-zenn-cli?utm_source=chatgpt.com "Zenn CLIをインストールする"))
     
 
 
@@ -83,7 +83,7 @@ npx zenn new:article --slug start-zenn --title "Zennの始め方とGitHub連携"
 # => articles/start-zenn.md が生成
 ```
 
-- 生成されたmdの先頭には **Front Matter** が入り、タイトル・トピック・公開設定を管理します。([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
+- 生成されたmdの先頭には **Front Matter** が入り，タイトル・トピック・公開設定を管理する．([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
     
 
 
@@ -99,7 +99,7 @@ zenn-contents/
 └─ node_modules/ ...
 ```
 
-> 補足：Publication（複数人運用）では `articles/` や `images/` の配置ルールがあります。個人運用の基本もこの並びです。([Zenn](https://zenn.dev/zenn/articles/connect-to-github-publication?utm_source=chatgpt.com "PublicationにGitHubリポジトリを連携してZennのコンテンツを ..."))
+> 補足：Publication（複数人運用）では `articles/` や `images/` の配置ルールがある．個人運用の基本もこの並び．([Zenn](https://zenn.dev/zenn/articles/connect-to-github-publication?utm_source=chatgpt.com "PublicationにGitHubリポジトリを連携してZennのコンテンツを ..."))
 
 
 ## 6. GitHub に Push → Zenn と連携
@@ -124,7 +124,7 @@ git push -u origin main
 
 ## 7. 記事の md 雛形（そのまま上書きOK）
 
-> `articles/start-zenn.md` の中身を以下に置き換えれば、そのまま初回投稿として使えます。
+> `articles/start-zenn.md` の中身を以下に置き換えれば、そのまま初回投稿として使える．
 
 ```md
 ---
@@ -136,9 +136,9 @@ published: true     # 下書きは false
 ---
 
 ## TL;DR
-- ZennとGitHubを連携して、ローカル執筆→Pushで公開。
-- `zenn-cli` の `init/new:article/preview` の3コマンドだけ覚えればOK。
-- 本記事の雛形を自分用テンプレにして回す。
+- ZennとGitHubを連携して、ローカル執筆→Pushで公開．
+- `zenn-cli` の `init/new:article/preview` の3コマンドだけ覚えればOK．
+- 本記事の雛形を自分用テンプレにして回す．
 
 ## なにをやる？
 - zenn-cli の導入と初期化
@@ -161,12 +161,12 @@ published: true     # 下書きは false
 - Zenn公式：zenn-cliガイド（Front Matter・コマンド）
 ```
 
-> Front Matter の各キー（`title/emoji/type/topics/published`）は Zenn 公式が定義する基本セット。**type** は `tech`（技術）/`idea`（アイデア）の2択です。([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
+> Front Matter の各キー（`title/emoji/type/topics/published`）は Zenn 公式が定義する基本セット．**type** は `tech`（技術）/`idea`（アイデア）の2択です．([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
 
 
 ## 8. 下書きから投稿，記事の修正
 
-基本の流れは (1) 状態確認 → (2) 追加（ステージ）→ (3) コミット → (4) プッシュ です。
+基本の流れは (1) 状態確認 → (2) 追加（ステージ）→ (3) コミット → (4) プッシュ 
 
 コマンドでやる場合（PowerShell/ターミナル）
 0. いまどこが変わってるか確認
@@ -210,7 +210,7 @@ git commit --amend               # 直前のコミットメッセージを修正
 
 - `npm i -D zenn-cli` を実行しているか（`npx zenn init` が見つからない場合）([Zenn](https://zenn.dev/zenn/articles/install-zenn-cli?utm_source=chatgpt.com "Zenn CLIをインストールする"))
     
-- リポジトリに **articles/** があり、md が置かれているか（空だと何も出ない）([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
+- リポジトリに **articles/** があり，md が置かれているか（空だと何も出ない）([Zenn](https://zenn.dev/zenn/articles/zenn-cli-guide?utm_source=chatgpt.com "Zenn CLIで記事・本を管理する方法"))
     
 - Zenn 側で **GitHub連携** を済ませたか（権限は対象リポジトリを選択）([Zenn](https://zenn.dev/zenn/articles/connect-to-github?utm_source=chatgpt.com "アカウントにGitHubリポジトリを連携してZennのコンテンツを ..."))
     
