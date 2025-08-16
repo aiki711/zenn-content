@@ -35,8 +35,18 @@ published: false
         ```
 
 - Git for Windowsをインストール （参考 [Gitのインストール方法(Windows版)](https://qiita.com/takeru-hirai/items/4fbe6593d42f9a844b1c)）
-    
-- GitHubで空のリポジトリ（例：`zenn-contents`）を作成（Public推奨）
+1. ローカルをGit管理にする
+   作業フォルダ（例：`zenn-contents`）で：
+   `git init git add . git commit -m "chore: init zenn (cli+articles)"`
+   > `zenn init` 済みなら `articles/` と `books/`、`README.md`、`.gitignore` などができています。[Zenn](https://zenn.dev/zenn/articles/install-zenn-cli?utm_source=chatgpt.com)
+
+2. GitHubで空のリポジトリ（例：`zenn-contents`）を作成（Public推奨）
+   
+3. リモート登録 → 初回Push
+   HTTPSでつなぐ（一般的）
+   `git branch -M main git remote add origin https://github.com/<USER>/<REPO>.git git push -u origin main`
+   - 2021/08/13以降、**パスワードは使えません**。プロンプトの“Password”には **Personal Access Token (PAT)** を入力します（作成は Settings → Developer settings → _Personal access tokens_）。[Stack Overflow](https://stackoverflow.com/questions/68775869/message-support-for-password-authentication-was-removed?utm_source=chatgpt.com)[GitHub Docs](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?utm_source=chatgpt.com) 
+   -  以降は `git push` だけでOK。資格情報はWindowsの**Credential Manager**に保存されます。入れ替えたい時はそこでトークンを更新。[Super User](https://superuser.com/questions/1309196/how-to-update-authentication-token-for-a-git-remote?utm_source=chatgpt.com)
     
 
 
