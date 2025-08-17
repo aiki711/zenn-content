@@ -2,7 +2,7 @@
 title: "LLMゼロショット感情推定の実験をしてみる"
 emoji: "🔎"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["LLM","NLP","Sentiment","Evaluation"]
+topics: ["AI","LLM","NLP","Sentiment","Evaluation"]
 published: true
 ---
 
