@@ -3,7 +3,7 @@ title: "ゼロショットの次へ：Few-shotとCoTで感情分類を底上げ�
 emoji: "🧩"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["AI","LLM","NLP","CoT","Prompting"]
-published: false
+published: true
 ---
 
 
@@ -190,8 +190,6 @@ python run_vLLM_imdb_variants.py \
 | CoT           | 0.92     | 0.9147            | 0.9292         | 0.9184     |
 
 
-![IMDB: AccuracyとF1](https://storage.googleapis.com/zenn-user-upload/68efc5669827-20250818.png "Accuracy/F1 bar chart")
-![IMDB: クラス別Recall](https://storage.googleapis.com/zenn-user-upload/c82c774f88a5-20250818.png "Recall by class")
 ![IMDB: AccuracyとF1](/images/imdb_variants_accuracy_f1.png "Accuracy/F1 bar chart")
 ![IMDB: クラス別Recall](/images/imdb_variants_recall_by_class.png "Recall by class")
 
