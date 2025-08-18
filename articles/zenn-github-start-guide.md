@@ -1,5 +1,5 @@
 ---
-title: "Zennではじめる技術ブログ：GitHub連携と初期リポジトリ構成，最初のmd雛形"
+title: "Zennではじめる技術ブログ：GitHub連携と初期リポジトリ構成"
 emoji: "💬"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["zenn", "github"]
