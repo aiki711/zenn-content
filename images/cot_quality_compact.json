@@ -1,8 +1,0 @@
-{
-  "parse_success_rate": 1.0,
-  "accuracy": 0.92,
-  "avg_confidence": 0.986,
-  "avg_reason_length": 58.3,
-  "corr_confidence_correct": 0.3083089549292603,
-  "n": 100
-}
