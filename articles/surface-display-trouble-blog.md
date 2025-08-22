@@ -3,7 +3,7 @@ title: "Surfaceに化粧水をこぼしたら画面が真っ黒になった話�
 emoji: "⛳"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["Surfaceトラブル","PCトラブル","トラブルシューティング","水濡れ注意","やらかし"]
-published: false
+published: Ture
 ---
 
 # Surfaceに化粧水をこぼしたら画面が真っ黒になった話と対処法
