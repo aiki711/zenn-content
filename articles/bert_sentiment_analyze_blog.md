@@ -306,6 +306,20 @@ qsub train_sft_openpbs20.pbs
 2. `figs/confusion_matrix.png`：どのクラスで取り違えが多いか
 3. 誤分類ログ（標準出力の5件）：**確信度が高いのに誤り**のサンプルを読む
 
+# 実験結果
+
+```
+              precision    recall  f1-score   support
+
+         NEG       0.89      0.90      0.89      3000
+         NEU       0.52      0.46      0.49      1000
+         POS       0.67      0.73      0.70      1000
+
+    accuracy                           0.78      5000
+   macro avg       0.69      0.69      0.69      5000
+weighted avg       0.77      0.78      0.77      5000
+```
+
 
 # おわりに
 
