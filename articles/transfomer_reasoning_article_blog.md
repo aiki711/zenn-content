@@ -3,7 +3,7 @@ title: "Transformersはどうやって記号的な多段推論を学ぶのか：
 emoji: "📌"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["AI","Trasformers","CoT"]
-published: Ture
+published: True
 ---
 
 
