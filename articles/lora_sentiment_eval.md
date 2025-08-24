@@ -5,7 +5,6 @@ type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["LoRA","LLM","PEFT","fine-tuning/ファインチューニング","TRL"]
 published: True
 ---
-s
 
 # LoRA で Mistral-7B を映画レビュー感情分類にファインチューニングした話
 
