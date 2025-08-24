@@ -17,7 +17,7 @@ published: True
 * **出力形式**: モデル出力を **JSON（label / confidence / reason）** に強制 → 評価と分析を自動化
 * **ざっくり結果**: 100件の検証で **Acc ≈ 0.94**（`report_lora_quality.json` より）
 
----
+
 
 # なぜ LoRA？
 
@@ -78,7 +78,7 @@ Saving LoRA adapter…
 Done. Adapter saved to runs_imdb_A40/lora_mistral_7b_instruct_v0_3
 ```
 
----
+
 
 # 推論 & 評価を “構造化 JSON” で一気通貫
 
@@ -196,14 +196,14 @@ python analyze_cot_quality.py \
 * **原因**: 予測が **JSON ではなく自由文** → パーサが `confidence` / `reason` を取れない
 * **対処**: 学習・推論とも **JSON 出力を強制**（本稿の実装で解決）
 
----
+
 
 # vLLM でのベースライン比較（任意）
 
 ゼロショット／少ショット（few-shot, CoT）基準の作成に `run_vLLM_imdb_variants.py` を使用し，`report_zero.json`, `report_few2.json`, `report_few5.json` を作成．LoRA の改善幅を確認しました．
 （vLLM は高速ですが，**LoRA アダプタはそのままでは読めない**ため，必要なら次の「マージ」を使います）
 
----
+
 
 # LoRA をベースにマージしてデプロイ
 
@@ -243,11 +243,28 @@ python merge_lora_and_export.py \
 | JSON 解析成功率（parse\_success\_rate） | **0.99** |
 | サンプル数                            |  **100** |
 
-> 備考: 現状の `report_lora_quality.json` では `avg_confidence` / `avg_reason_length` / `corr_confidence_correct` が `null`（未集計）です．これは **推論出力に `confidence` と `reason` を含めない設定で回した履歴**が混じっているためです．`infer_lora_imdb.py` の更新版（モデルに JSON 形式 `{label, confidence, reason}` を強制）で再実行すると，これらの指標も自動で埋まります．
-
-## これまでの実験との比較
+## これまでの実験との比較(LoRA と CoT の比較)
 
 ![Figure1](/images/lora_sentiment_eval/figure1.png "bar accuracy axis80~100 ")
+
+| 指標               |    CoT 基準 | LoRA（SFT） |                     差分 |
+| ---------------- | --------: | --------: | ---------------------: |
+| Accuracy         |  **0.92** |  **0.93** |              **+0.01** |
+| 平均 confidence    | **0.986** | **0.922** |             **−0.064** |
+| confidence–正解の相関 | **0.308** | **0.427** | **+0.119（相対 +39% 程度）** |
+| 平均 reason 長      |  **58.3** |  **91.1** |              **+32.8** |
+| 解析成功率（parse）     |  **1.00** |  **1.00** |                 **±0** |
+| サンプル数            |       100 |       100 |                      — |
+
+
+* **精度**は LoRA が **+1pt** 上回り。\*\*校正度合い（confidence–正解の相関）\*\*も LoRA が大きく改善。
+* 一方で **confidence の平均は LoRA で低下** → **過剰自信が緩和**された可能性。
+* **reason は長文化**（+32.8）。プロンプトで「理由は1–2文に限定」と指示すると、冗長さを抑えつつ校正の利点は保てるかも。
+
+> 次の改善アイデア
+> ① 推論プロンプトで理由の**長さ上限**と\*\*出力形式（JSON）\*\*を明確化
+> ② **Brier score** 等のキャリブレーション指標も併記
+> ③ データ拡張やエポック増で LoRA の上積みを検証（過学習は `avg_confidence` 再上昇などで監視）
 
 
 ## 注意点（再現時）
