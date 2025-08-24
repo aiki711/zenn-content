@@ -3,7 +3,7 @@ title: "LoRAでMistral-7Bを映画レビュー感情分類にファインチュ�
 emoji: "😸"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["LoRA","LLM","PEFT","fine-tuning/ファインチューニング","TRL"]
-published: Ture
+published: True
 ---
 s
 
