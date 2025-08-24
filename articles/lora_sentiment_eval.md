@@ -2,8 +2,8 @@
 title: "LoRAでMistral-7Bを映画レビュー感情分類にファインチューニングした話"
 emoji: "😸"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: []
-published: false
+topics: ["LoRA","LLM","PEFT","fine-tuning/ファインチューニング","TRL"]
+published: Ture
 ---
 s
 
@@ -22,8 +22,8 @@ s
 
 # なぜ LoRA？
 
-フル微調整は 7B でも重い＆遅い。**LoRA** なら、注意機構など一部行列の低ランク更新のみ学習して、**数十MB〜数百MBのアダプタ**だけを保存できます。
-今回の学習ログでは、**学習可能パラメータ 41.9M（全体の \~0.58%）** に抑制できました。
+フル微調整は 7B でも重い＆遅い．**LoRA** なら，注意機構など一部行列の低ランク更新のみ学習して，**数十MB〜数百MBのアダプタ**だけを保存できます．
+今回の学習ログでは，**学習可能パラメータ 41.9M（全体の \~0.58%）** に抑制できました．
 
 
 
@@ -42,9 +42,9 @@ export HF_TOKEN=...   # あるいは環境に設定済み
 
 # 学習データの設計：出力を最初から “構造化”
 
-今回のキモは、**学習時から “JSON を出力させる指示” を一貫して与える**ことです。
-モデルに **「label / confidence / reason」** を必ず返させる **JSON 指示プロンプト**を仕込み、SFT でも同じフォーマットで教えました。
-これにより、**推論 → メトリクス計算 → CoT（理由）品質分析**までを **機械可読**に繋げられます。
+今回のキモは，**学習時から “JSON を出力させる指示” を一貫して与える**ことです．
+モデルに **「label / confidence / reason」** を必ず返させる **JSON 指示プロンプト**を仕込み，SFT でも同じフォーマットで教えました．
+これにより，**推論 → メトリクス計算 → CoT（理由）品質分析**までを **機械可読**に繋げられます．
 
 
 
@@ -54,8 +54,8 @@ export HF_TOKEN=...   # あるいは環境に設定済み
 
 主なハイパーパラメータ（抜粋・既定値はスクリプト内）:
 
-* LoRA: `r`（ランク）, `alpha`, `dropout`、対象モジュールは Mistral の `q_proj / k_proj / v_proj / o_proj / gate / up / down` を想定
-* 最大学習長 `max_seq_len`、学習率、エポック数、バッチサイズ、`bf16`、（任意で）`4bit` 量子化読み込み など
+* LoRA: `r`（ランク）, `alpha`, `dropout`，対象モジュールは Mistral の `q_proj / k_proj / v_proj / o_proj / gate / up / down` を想定
+* 最大学習長 `max_seq_len`，学習率，エポック数，バッチサイズ，`bf16`，（任意で）`4bit` 量子化読み込み など
 
 実行例:
 
@@ -133,7 +133,7 @@ python evaluate_zero_shot.py \
 スクリプト: `analyze_cot_quality.py`
 
 * **解析対象**: gold と pred（生出力）
-* **指標**: 解析成功率、Accuracy、平均 confidence、平均 reason 文字数、**confidence と正解の相関**（Pearson）
+* **指標**: 解析成功率，Accuracy，平均 confidence，平均 reason 文字数，**confidence と正解の相関**（Pearson）
 
 実行例:
 
@@ -155,14 +155,14 @@ python analyze_cot_quality.py \
 * `report_lora.json` には **Precision / Recall / F1（macro）** と **混同行列** を収録
 * `preview_lora.json` で **誤り事例の先頭20件** を即確認できます
 
-> 注: 以前、`positive` の指標が全ゼロになる問題がありました。
-> 原因は **ラベルの正規化／クラス不均衡サンプリング／出力パース**のどれか（または複合）でした。
+> 注: 以前，`positive` の指標が全ゼロになる問題がありました．
+> 原因は **ラベルの正規化／クラス不均衡サンプリング／出力パース**のどれか（または複合）でした．
 > **修正点**
 >
 > * 予測は **JSON を強制**（自由文をやめる）
 > * ラベルは **`normalize_label`** で統一
 > * 検証サンプルは **shuffle または層化**（両クラスが確実に含まれる）
->   これで per-class の数値が正しく出るようになりました。
+>   これで per-class の数値が正しく出るようになりました．
 
 
 
@@ -175,7 +175,7 @@ python analyze_cot_quality.py \
 
 ## 2) `SFTTrainer.__init__() got an unexpected keyword argument 'tokenizer'`
 
-* **原因**: こちらも TRL の版差。古い API は `tokenizer` を直接受けない
+* **原因**: こちらも TRL の版差．古い API は `tokenizer` を直接受けない
 * **対処**: `dataset_text_field` 経由に変更 or TRL をアップデート
 
 ## 3) `adapter_config.json` の 404（HF Hub で見つからない）
@@ -201,15 +201,15 @@ python analyze_cot_quality.py \
 
 # vLLM でのベースライン比較（任意）
 
-ゼロショット／少ショット（few-shot, CoT）基準の作成に `run_vLLM_imdb_variants.py` を使用し、`report_zero.json`, `report_few2.json`, `report_few5.json` を作成。LoRA の改善幅を確認しました。
-（vLLM は高速ですが、**LoRA アダプタはそのままでは読めない**ため、必要なら次の「マージ」を使います）
+ゼロショット／少ショット（few-shot, CoT）基準の作成に `run_vLLM_imdb_variants.py` を使用し，`report_zero.json`, `report_few2.json`, `report_few5.json` を作成．LoRA の改善幅を確認しました．
+（vLLM は高速ですが，**LoRA アダプタはそのままでは読めない**ため，必要なら次の「マージ」を使います）
 
 ---
 
 # LoRA をベースにマージしてデプロイ
 
-`merge_lora_and_export.py` で LoRA をベースモデルに **merge & save**。
-vLLM 等でそのまま配布したい時に便利です。
+`merge_lora_and_export.py` で LoRA をベースモデルに **merge & save**．
+vLLM 等でそのまま配布したい時に便利です．
 
 ```bash
 python merge_lora_and_export.py \
@@ -244,7 +244,7 @@ python merge_lora_and_export.py \
 | JSON 解析成功率（parse\_success\_rate） | **0.99** |
 | サンプル数                            |  **100** |
 
-> 備考: 現状の `report_lora_quality.json` では `avg_confidence` / `avg_reason_length` / `corr_confidence_correct` が `null`（未集計）です。これは **推論出力に `confidence` と `reason` を含めない設定で回した履歴**が混じっているためです。`infer_lora_imdb.py` の更新版（モデルに JSON 形式 `{label, confidence, reason}` を強制）で再実行すると、これらの指標も自動で埋まります。
+> 備考: 現状の `report_lora_quality.json` では `avg_confidence` / `avg_reason_length` / `corr_confidence_correct` が `null`（未集計）です．これは **推論出力に `confidence` と `reason` を含めない設定で回した履歴**が混じっているためです．`infer_lora_imdb.py` の更新版（モデルに JSON 形式 `{label, confidence, reason}` を強制）で再実行すると，これらの指標も自動で埋まります．
 
 ## これまでの実験との比較
 
@@ -253,7 +253,7 @@ python merge_lora_and_export.py \
 
 ## 注意点（再現時）
 
-* `report_lora.json` が全ゼロになるケースは、**評価対象の予測/gold のラベル整形不一致**や**クラス片寄り（検証に positive が入っていない等）**、**誤ったファイルパス**が原因になりがちです。最新のスクリプトでは以下で対策済みです：
+* `report_lora.json` が全ゼロになるケースは，**評価対象の予測/gold のラベル整形不一致**や**クラス片寄り（検証に positive が入っていない等）**，**誤ったファイルパス**が原因になりがちです．最新のスクリプトでは以下で対策済みです：
 
   * 予測を **JSON 強制** → `label` を正規化して評価
   * 検証セットの **層化またはシャッフル**（両クラスが必ず含まれる）
@@ -263,13 +263,13 @@ python merge_lora_and_export.py \
 
 # まとめと今後
 
-* LoRA + JSON 一貫設計で、**精度**だけでなく \*\*自信度（confidence）や理由（reason）\*\*まで解析できる評価系を構築。
-* 版差に強いスクリプトにしておくと運用が安定します（TRL/Transformers は更新頻度が高い）。
+* LoRA + JSON 一貫設計で，**精度**だけでなく \*\*自信度（confidence）や理由（reason）\*\*まで解析できる評価系を構築．
+* 版差に強いスクリプトにしておくと運用が安定します（TRL/Transformers は更新頻度が高い）．
 * 次の一手:
 
   * **データ拡張**と **エポック増**で LoRA の上積み検証
   * **校正損失**（confidence calibration）や **reason の妥当性評価**（例: 事実一致・一貫性）
-  * **別ドメイン**（ツイート、レビュー以外）への転移
+  * **別ドメイン**（ツイート，レビュー以外）への転移
 
 
 
