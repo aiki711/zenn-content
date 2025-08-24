@@ -148,7 +148,7 @@ python analyze_cot_quality.py \
 
 
 
-# 結果（サマリ）
+# 出力
 
 * **LoRA（100件検証）**: `report_lora_quality.json` より **Accuracy ≈ 0.94**
 * `report_lora.json` には **Precision / Recall / F1（macro）** と **混同行列** を収録
@@ -257,9 +257,9 @@ python merge_lora_and_export.py \
 | サンプル数            |       100 |       100 |                      — |
 
 
-* **精度**は LoRA が **+1pt** 上回り。\*\*校正度合い（confidence–正解の相関）\*\*も LoRA が大きく改善。
-* 一方で **confidence の平均は LoRA で低下** → **過剰自信が緩和**された可能性。
-* **reason は長文化**（+32.8）。プロンプトで「理由は1–2文に限定」と指示すると、冗長さを抑えつつ校正の利点は保てるかも。
+* **精度**は LoRA が **+1pt** 上回り．**校正度合い（confidence–正解の相関）**も LoRA が大きく改善．
+* 一方で **confidence の平均は LoRA で低下** → **過剰自信が緩和**された可能性．
+* **reason は長文化**（+32.8）．プロンプトで「理由は1–2文に限定」と指示すると，冗長さを抑えつつ校正の利点は保てるかも．
 
 > 次の改善アイデア
 > ① 推論プロンプトで理由の**長さ上限**と\*\*出力形式（JSON）\*\*を明確化
