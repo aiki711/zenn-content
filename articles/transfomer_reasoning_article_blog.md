@@ -53,7 +53,7 @@ CoT によって LLM の**多段推論性能**が大きく伸びることは経�
 
 # 例で掴む：推論の 2 ステップ
 
-![Figure1](/images/figure1.png "An illustration of the path-finding reasoning task in a tree")
+![Figure1](/images/transfomer_reasoning_article_blog/figure1.png "An illustration of the path-finding reasoning task in a tree")
 図１では，推論の２ステップを，木構造を用いて説明している．
 1. **バックワード推論（Backward）**：`8→1→2→4` のように，ゴールからルートへ親をたどる方向で経路を抽出する．
 2. **フォーワード推論（Forward）**：得られた経路(`8→1→2→4`)を反転して最終的に出力したい経路(`4→2→1→8`)を出力．
@@ -63,7 +63,7 @@ CoT によって LLM の**多段推論性能**が大きく伸びることは経�
 
 # 自己回帰的な逐次推論ループ
 
-![Figure2](/images/figure2.png "The multi-step reasoning process of the constructed transformers")
+![Figure2](/images/transfomer_reasoning_article_blog/figure2.png "The multi-step reasoning process of the constructed transformers")
 
 図２では，具体的な二段推論を説明している．
 * **後ろ向き→（rootで転回）→前向き**という二段推論を一つのCoTシーケンスでこなす設定

@@ -128,7 +128,7 @@ python evaluate_zero_shot.py \
   --preview_out runs_imdb_A40/preview_lora.json
 ```
 
-## 「理由（reason）」「自信度（confidence）」の品質チェック
+## 理由（reason）と自信度（confidence）の品質チェック
 
 スクリプト: `analyze_cot_quality.py`
 
@@ -201,8 +201,7 @@ python analyze_cot_quality.py \
 
 # vLLM でのベースライン比較（任意）
 
-ゼロショット／少ショット（few-shot, CoT）基準の作成に `run_vLLM_imdb_variants.py` を使用し、
-`report_zero.json`, `report_few2.json`, `report_few5.json` を作成。LoRA の改善幅を確認しました。
+ゼロショット／少ショット（few-shot, CoT）基準の作成に `run_vLLM_imdb_variants.py` を使用し、`report_zero.json`, `report_few2.json`, `report_few5.json` を作成。LoRA の改善幅を確認しました。
 （vLLM は高速ですが、**LoRA アダプタはそのままでは読めない**ため、必要なら次の「マージ」を使います）
 
 ---
@@ -246,6 +245,10 @@ python merge_lora_and_export.py \
 | サンプル数                            |  **100** |
 
 > 備考: 現状の `report_lora_quality.json` では `avg_confidence` / `avg_reason_length` / `corr_confidence_correct` が `null`（未集計）です。これは **推論出力に `confidence` と `reason` を含めない設定で回した履歴**が混じっているためです。`infer_lora_imdb.py` の更新版（モデルに JSON 形式 `{label, confidence, reason}` を強制）で再実行すると、これらの指標も自動で埋まります。
+
+## これまでの実験との比較
+
+![Figure1](/images/lora_sentiment_eval/figure1.png "bar accuracy axis80~100 ")
 
 
 ## 注意点（再現時）
