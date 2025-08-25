@@ -1,5 +1,5 @@
 ---
-title: "Transformersはどうやって記号的な多段推論を学ぶのか：勾配降下の観点からの解説"
+title: "Transformersはどうやって記号的な多段推論を学ぶのかに関する論文を一緒に読みましょう！"
 emoji: "📌"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["AI","Trasformers","CoT"]
