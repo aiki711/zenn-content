@@ -1,10 +1,14 @@
 ---
 title: "自律研究エージェントに関する論文を一緒に読みましょう！"
 emoji: "🧪"
-type: "tech" # tech: 技術記事 / idea: アイデア
+type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["AI", "LLM", "Agent", "Research", "Science"]
 published: false
 ---
+
+# Virtuous Machines: Towards Artificial General Science を噛み砕く
+
+> この記事は，「自分の理解を深めたい」という気持ちで書いています．読者のみなさんと**同じ目線**で，一緒に理解を育てていくスタイルです．僕の理解が及ばない部分があれば，優しく教えていただけると幸いです！
 
 # TL;DR
 LLM×エージェントで“仮説→実験→解析→論文化”まで **自律的** に回す研究．オンライン実験（人間被験者 288 名）を含む 3 つの心理実験を**ほぼ無人で**設計・実行・原稿化し，図表や参考文献検証まで自動化． **ただし** 概念的な独創性や理論解釈の練度には課題．安全性・信用・功績帰属の枠組みづくりが超重要．
@@ -30,7 +34,8 @@ LLM×エージェントで“仮説→実験→解析→論文化”まで **自
 
 # システム全体像（アーキテクチャ）
 
-![Figure1](/images/virtuous_machines_article_blog/figure1.png "An illustration of the path-finding reasoning task in a tree")
+![Figure1](/images/virtuous_machines_article_blog/figure1.png "Simplified network architecture of the autonomous scientific discovery
+system.")
 
 マスターエージェントが研究プロジェクトを統括し，各工程を **モジュール化エージェント** に委譲：
 
@@ -44,6 +49,8 @@ LLM×エージェントで“仮説→実験→解析→論文化”まで **自
 * **Document/組版エージェント**（最終原稿を Word/LaTeX で生成）
 
 ## 人間を模した「認知オペレータ」
+
+![Figure2](/images/virtuous_machines_article_blog/figure2.png "Hierarchical framework of cognitive agency levels.")
 
 長期計画や自己検証が苦手な LLM を補うため，
 
@@ -148,9 +155,10 @@ flowchart LR
 
 # 関連リンク
 
-* 論文: *Virtuous Machines: Towards Artificial General Science*（arXiv）
-* 参考：AlphaFold，Paper Wizard（AI プリ査読ツール）
-
+* **タイトル**：*Multi-head Transformers Provably Learn Symbolic Multi-step Reasoning via Gradient Descent*
+* **著者**：Tong Yang, Yu Huang, Yingbin Liang, Yuejie Chi
+* **年**：2025
+* **arXiv**： [arXiv:2508.08222](https://arxiv.org/abs/2508.08222) 
 
 
 # 付録：図表エージェントの分担（例）
