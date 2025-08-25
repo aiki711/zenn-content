@@ -3,7 +3,7 @@ title: "自律研究エージェントに関する論文を一緒に読みまし
 emoji: "🧪"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["AI", "LLM", "Agent", "Research", "Science"]
-published: false
+published: True
 ---
 
 # Virtuous Machines: Towards Artificial General Science を噛み砕く
@@ -11,7 +11,10 @@ published: false
 > この記事は，「自分の理解を深めたい」という気持ちで書いています．読者のみなさんと**同じ目線**で，一緒に理解を育てていくスタイルです．僕の理解が及ばない部分があれば，優しく教えていただけると幸いです！
 
 # TL;DR
-LLM×エージェントで“仮説→実験→解析→論文化”まで **自律的** に回す研究．オンライン実験（人間被験者 288 名）を含む 3 つの心理実験を**ほぼ無人で**設計・実行・原稿化し，図表や参考文献検証まで自動化． **ただし** 概念的な独創性や理論解釈の練度には課題．安全性・信用・功績帰属の枠組みづくりが超重要．
+* LLM×エージェントで**仮説→実験→解析→論文化まで自律的に回す**研究．
+* オンライン実験（人間被験者 288 名）を含む 3 つの心理実験を**ほぼ無人で設計・実行・原稿化し，図表や参考文献検証まで自動化**． 
+* ただし，**概念的な独創性や理論解釈の練度には課題**．
+* 安全性・信用・功績帰属の枠組みづくりが超重要．
 
 
 
@@ -37,7 +40,7 @@ LLM×エージェントで“仮説→実験→解析→論文化”まで **自
 ![Figure1](/images/virtuous_machines_article_blog/figure1.png "Simplified network architecture of the autonomous scientific discovery
 system.")
 
-マスターエージェントが研究プロジェクトを統括し，各工程を **モジュール化エージェント** に委譲：
+**Masterエージェント**が研究を統括し，各工程を **モジュール化エージェント** に委譲：
 
 * **Idea/仮説生成エージェント**
 * **Method/手法設計エージェント**（実験計画，手続き，倫理・制約の考慮）
@@ -53,14 +56,15 @@ system.")
 ![Figure2](/images/virtuous_machines_article_blog/figure2.png "Hierarchical framework of cognitive agency levels.")
 
 長期計画や自己検証が苦手な LLM を補うため，
-
+* **Retreval（検索・動的記憶）**：一貫した記憶と事実性を担保
 * **Abstraction（抽象化）**: 汎用則から自前の手順書を導く
 * **Metacognition（メタ認知）**: 進捗点検・自己評価・再計画
 * **Decomposition（分解）**: 問題を実装可能なタスクに細分化
 * **Autonomy（自律）**: 工具選択・反復改善・境界条件の更新
   を **明示的に回す制御層** を設計．
+* **Collaboration**：相補的能力を持つエージェントが分業・相互検証し，複雑な課題を完遂
 
-## （Mermaid）全体フロー図
+## 全体フロー図
 
 ```mermaid
 flowchart LR
@@ -76,7 +80,7 @@ flowchart LR
 
 
 
-# 実験の中身（心理学 3 テーマ）
+# 実験概要（心理学 3 テーマ）
 
 1. **視覚ワーキングメモリとメンタルローテーションの関係**
 
@@ -95,7 +99,7 @@ flowchart LR
 
 
 
-# 成果とインパクト（解釈）
+# 成果とインパクト
 
 * **できたこと**：
 
@@ -121,19 +125,6 @@ flowchart LR
 * **運用提案**：
 
   * 各ステージでの **オプション人手検証**，**出力検証ログ**の標準化，**AI 生成研究の検出指標**の整備．
-
-
-
-# 再現・実装メモ
-
-* ワークフローは **企業（Explore Science）による独自実装**．現時点では**完全なオープン再現は困難**．
-* ただし，設計思想（モジュール化・認知オペレータ層・DOI 検証・擬似査読）は **一般化可能**．
-* 研究者が自前で試すなら：
-
-  * マルチエージェント（LangChain/AutoGen/自作）＋ **実験プラットフォーム API**（Prolific，Pavlovia など）
-  * 統計：Python（pandas, statsmodels, pingouin）／R（tidyverse, lme4）
-  * 図表自動化：Jupyter + Matplotlib/Plotly，Word/LaTeX への自動出力
-  * **DOI 照合**と**引用整形**は専用スクリプト化（Crossref/doi.org API）
 
 
 
