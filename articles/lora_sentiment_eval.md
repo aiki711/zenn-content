@@ -8,6 +8,14 @@ published: True
 
 # LoRA で Mistral-7B を映画レビュー感情分類にファインチューニングした話
 
+この記事は，下記の記事の延長線上のようなものです！
+実験の目的などを書いているので，気になる方はどうぞ！
+[関連記事：LLMゼロショット感情推定の実験をしてみる](https://zenn.dev/arai0711/articles/llm_sentiment_eval_blog)
+[関連記事：ゼロショットの次へ：Few-shotとCoTで感情分類を底上げする（IMDB＋vLLM）
+](https://zenn.dev/arai0711/articles/llm_sentiment_cot_blog)
+
+
+
 ## 要旨
 
 * **ベースモデル**: `mistralai/Mistral-7B-Instruct-v0.3`

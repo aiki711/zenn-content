@@ -11,7 +11,10 @@ published: true
 
 **— 例示（Few-shot）とChain-of-Thought、多数決・投票率confidence、JSONパースまで “壊れない” 比較実験 —**
 
-*更新: 2025-08-18 15:00*
+この記事は，下記の記事の延長線上のようなものです！
+実験の目的などを書いているので，気になる方はどうぞ！
+[関連記事：LLMゼロショット感情推定の実験をしてみる](https://zenn.dev/arai0711/articles/llm_sentiment_eval_blog)
+
 
 ## TL;DR
 
