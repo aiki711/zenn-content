@@ -61,7 +61,7 @@ published: True
 
 # 手法の全体像
 
-![パイプライン](/images/llm_personality_reserch_blog/figure1.png "Persona vectors and their applications.")
+![パイプライン](/images/llm_personality_reserch_blog/figure1.#png "Persona vectors and their applications.")
 
 1. **特性記述**（例：「evil: 攻撃性・悪意を示す応答傾向」）
 2. **対照プロンプト生成**：特性を促す/抑える *system prompt* と評価用 *question* を自動生成
@@ -107,7 +107,7 @@ $$
 
 ## Persona Vector 抽出（詳細）
 
-![抽出フロー](/images/llm_personality_reserch_blog/figure2.png "Automated pipeline for persona vector extraction.")
+![抽出フロー](/images/llm_personality_reserch_blog/figure2.#png "Automated pipeline for persona vector extraction.")
 
 図2はペルソナベクトルの抽出の流れを表している．
 
@@ -121,7 +121,7 @@ $$
 
 ## 制御（Steering）
 
-![事後/予防ステアリング](/images/llm_personality_reserch_blog/figure3.png)
+![事後/予防ステアリング](/images/llm_personality_reserch_blog/figure3.#png)
 
 $h_\ell \leftarrow h_\ell + \alpha v_\ell$​．ここでαはステアリング係数，𝑣ℓは抽出したペルソナベクトル，hℓは層ℓにおける残差ストリーム活性である．
 
@@ -142,7 +142,7 @@ $h_\ell \leftarrow h_\ell + \alpha v_\ell$​．ここでαはステアリング
 
 ## 監視（Monitoring）
 
-![監視概念図](/images/llm_personality_reserch_blog/figure5.png)
+![監視概念図](/images/llm_personality_reserch_blog/figure5.#png)
 
 図4は，many-shot 設定における本手法のモニタリング有効性を示している．各評価質問の先頭に，目標特性を明示的に示す少数例（0/5/10/15/20個）を付与したところ，最終プロンプトトークンの活性をペルソナベクトルへ射影した値が，その後に生成される応答の特性表現スコアと強く相関した．横軸が射影値，縦軸が特性スコアであり，few-shot 例の数を増やすほどスコアが上昇する傾向が確認できる．
 
@@ -153,7 +153,7 @@ $h_\ell \leftarrow h_\ell + \alpha v_\ell$​．ここでαはステアリング
 
 ## 人格シフトの測定（微調整の影響）
 
-![微調整シフトと表現スコアの関係](/images/llm_personality_reserch_blog/figure6.png)
+![微調整シフトと表現スコアの関係](/images/llm_personality_reserch_blog/figure6.#png)
 
 図5は，ペルソナベクトルに沿った微調整シフトと，対応する特性の表現スコアとの関係を示している
 
@@ -164,7 +164,7 @@ $h_\ell \leftarrow h_\ell + \alpha v_\ell$​．ここでαはステアリング
 
 ## データ審査：投影差で“危険”を弾く
 
-![投影差の概念図](/images/llm_personality_reserch_blog/figure4.png)
+![投影差の概念図](/images/llm_personality_reserch_blog/figure4.#png)
 
 図6は対照の教師応答の射影と特性を強く反映させた教師応答の射影の分布を比較．
 教師応答というのは，外部の大規模言語モデルによって，対照の応答と特性の強さを変えた応答を生成させて作成している．
