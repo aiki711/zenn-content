@@ -6,6 +6,7 @@ topics: ["LLM", "Llama2", "CAA", "RepE"]
 published: True
 ---
 
+# Contrastive Activation Addition で Llama 2 を操る — ステアリング・ベクトル
 > この記事は，「自分の理解を深めたい」という気持ちで書いています．読者のみなさんと**同じ目線**で，一緒に理解を育てていくスタイルです．僕の理解が及ばない部分があれば，優しく教えていただけると幸いです！
 
 # TL;DR
