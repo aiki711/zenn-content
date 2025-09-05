@@ -3,7 +3,7 @@ title: "長期対話を“イベント記憶×ペルソナ”で支える LLMに
 emoji: "👋"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["LLM", "Dialogue", "RAG", "Memory", "Persona"]
-published: false
+published: True
 ---
 
 
