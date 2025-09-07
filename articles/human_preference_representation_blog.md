@@ -2,8 +2,8 @@
 title: "表現操作で人間の好みにLLMを合わせるRLなし低コスト整列に関する論文を一緒に読みましょう！"
 emoji: "🎛️"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: ["LLM", "RLHF", "DPO", "Representation Engineering"]
-published: false
+topics: ["LLM", "RLHF", "DPO", "Representation", "Engineering"]
+published: True
 ---
 
 
@@ -38,17 +38,21 @@ published: false
 ## 1) 「好み」をモデルに教える（前段整列）
 - **RAHF-SCIT**（Single-Model, Contrastive Instruction Tuning）  
   good/bad の**対照命令**で同一モデルを学習し、**好ましい/好ましくない**を**相対確率**で近づけ/遠ざける：  
+
   \[
   \mathcal{L}=-\sum \Big[\;P^+ + \log \frac{e^{P^+}}{e^{P^+}+e^{P^-}}\;\Big],\ \ P^\pm=\log\pi(r\mid p^\pm,q)
   \] 
+
 - **RAHF-Dual**（Dual-Model, Supervised）  
   同じクエリに対し、**好ましい応答**で**好モデル**、**好ましくない応答**で**悪モデル**を**別々にSFT**：  
+
   \[
   \theta_h^*=\arg\max\sum\log\pi(r_h\mid q),\quad \theta_l^*=\arg\max\sum\log\pi(r_l\mid q)
   \] 
 
 ## 2) 活性パターンの収集（差ベクトル）
 - **同一の応答 \(r\)** に **good/bad 刺激 \(p^+,p^-\)** を連結して入力し、**各層の隠れ状態**を抽出。**好み条件の差**を**層ごと**に計算：  
+
   \[
   v_l = A_{p^+,\pi,l}-A_{p^-,\pi,l}
   \]  
@@ -56,10 +60,12 @@ published: false
 
 ## 3) LoRAで“差”に合わせる（最終モデル構築）
 - **LoRA出力**を**元の活性**に足して**差ベクトル方向**へ**MSE整列**：  
+
   \[
   \mathcal{L}_{\text{Align}}=\left\|A_{p,\pi_{\text{LoRA}},l}-\big(A_{p,\pi_{\text{base}},l}+\alpha v_l\big)\right\|_2^2
   \]  
-  係数 \(\alpha\) は介入強度、**対象層（例：10,20,2）**で操作。
+
+  係数 \(\alpha\) は介入強度、**対象層（例：10,20,2）** で操作。
 
 
 
