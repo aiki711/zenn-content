@@ -3,7 +3,7 @@ title: "表現操作で人間の好みにLLMを合わせるRLなし低コスト�
 emoji: "🎛️"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["LLM", "RLHF", "DPO", "Representation", "Engineering"]
-published: True
+published: False
 ---
 
 
