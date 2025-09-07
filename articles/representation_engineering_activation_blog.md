@@ -128,8 +128,8 @@ published: True
 
 # 参考（論文情報）
 
-- **タイトル**：*LLMs Simulate Big Five Personality Traits:
-Further Evidence*
-- **著者**：Aleksandra Sorokovikova, Natalia Fedorova, Sharwin Rezagholi, Ivan P. Yamshchikov
-- **年**：2024
-- **aclanthology.org**： [リンクはこちら](https://aclanthology.org/2024.personalize-1.7.pdf)
+- **タイトル**：*Representation Engineering for Large-Language Models: Survey and
+Research Challenges*
+- **著者**：Lukasz Bartoszcze, Sarthak Munshi, Bryan Sukidi, Jennifer Yen, Zejia Yang, David Williams-King, Linh Le, Kosi Asuzu, Carsten Maple
+- **年**：2025
+- **arXiv**： [2502.17601v1](https://arxiv.org/abs/2502.17601v1)
