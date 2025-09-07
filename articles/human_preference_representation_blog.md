@@ -175,4 +175,4 @@ through Representation Engineering*
 - **著者**：Wenhao Liu, Xiaohua Wang, Muling Wu, Tianlong Li, Changze Lv
 Zixuan Ling, Jianhao Zhu, Cenyuan Zhang, Xiaoqing Zheng∗, Xuanjing Huang
 - **年**：2025
-- **OpenView.net**： [リンクはこちら](https://aclanthology.org/2024.acl-long.572/)
+- **ACL Anthology**： [リンクはこちら](https://aclanthology.org/2024.acl-long.572/)
