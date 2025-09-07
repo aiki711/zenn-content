@@ -1,7 +1,7 @@
 ---
 title: "LLMの内部表現を読んで・操る最新研究に関する論文を一緒に読みましょう！"
 emoji: "✨"
-type: "tech" # tech: 技術記事 / idea: アイデア
+type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["LLM","ActSteering","Representation", "Engineering","Interpretability"]
 published: True
 ---

@@ -40,7 +40,7 @@ published: True
 
 
 # 提案
-![Figure1](/images/human_role_prefarence_representation_blog/figure1.png)
+
 * **ポジショニング（どこが新しいか）**
   * **目的が“表現の方向合わせ”**：DPO のように**出力確率だけ**を押し上げるのではなく，
     **“望ましい状態の内部活性”** そのものにモデルを合わせ込む．

@@ -1,7 +1,7 @@
 ---
 title: "Sotopiaで検証するLLMエージェント評価の新基準に関する論文を一緒に読みましょう！"
 emoji: "😎"
-type: "tech" # tech: 技術記事 / idea: アイデア
+type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["LLM","SocialSimulation","Negotiation","BigFive","AgenticAI"]
 published: True
 ---
