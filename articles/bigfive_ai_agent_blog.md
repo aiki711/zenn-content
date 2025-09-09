@@ -3,7 +3,7 @@ title: "BigFiveはAIエージェントの意思決定をどう変えるのかに
 emoji: "🧑‍🏫"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["LLM", "MultiAgent", "BigFive", "SocialSimulation", "AgentVerse"]
-published: false
+published: True
 ---
 
 # Big Five は AI エージェントの意思決定をどう変える？— 教室シミュレーションでの検証
